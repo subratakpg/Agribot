@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+<center>
+
+
+ 
+<div class="btn-cap">
+<script type="text/javascript">
+var text="Agriculture Robot";
+var speed=80;
+
+if (document.all||document.getElementById)
+{
+   document.write('<span style="font-family:Comic Sans MS;font-size:26px;font-weight:bold;font-style:normal;text-decoration:none;" id="highlight">' + text + '<\/span>');
+   var storetext=document.getElementById? document.getElementById("highlight") : document.all.highlight;
+}
+else
+   document.write(text);
+
+var hex=new Array("00","14","28","3C","50","64","78","8C","A0","B4","C8","DC","F0");
+var r=1;
+var g=1;
+var b=1;
+var seq=1;
+function changetext()
+{
+   rainbow="#"+hex[r]+hex[g]+hex[b];
+   storetext.style.color=rainbow;
+}
+function change()
+{
+   if (seq==6)
+   {
+      b--;
+      if (b==0)
+        seq=1;
+   }
+   if (seq==5)
+   {
+      r++;
+      if (r==12)
+         seq=6;
+   }
+   if (seq==4)
+   {
+      g--;
+      if (g==0)
+         seq=5;
+   }
+   if (seq==3)
+   {
+      b++;
+      if (b==12)
+         seq=4;
+   }
+   if (seq==2)
+   {
+      r--;
+      if (r==0)
+         seq=3;
+   }
+   if (seq==1)
+   {
+      g++;
+      if (g==12)
+         seq=2;
+   }
+   changetext();
+}
+
+function starteffect()
+{
+   if (document.all||document.getElementById)
+      flash=setInterval("change()",speed);
+}
+starteffect();
+</script>
+</div>
+
+
+   <img src="images/mic.gif" alt="">
+
+
+
+    <div class="btn-cap">
+    <script type="text/javascript">
+        var message="Click and Speak";
+        var flashspeed=100;
+        var n=0;
+        
+        document.write('<font style="color:#008000;font-family:Bookman Old Style;font-size:20px;font-weight:bold;font-style:italic;text-decoration:none;">');
+        for (m=0;m<message.length;m++)
+           document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'<\/span>');
+        document.write('<\/font>');
+        
+        
+        function crossref(number)
+        {
+           var crossobj = document.getElementById("neonlight"+number);
+           return crossobj;
+        }
+        function neon()
+        {
+           if (n==0)
+           {
+              for (m=0;m<message.length;m++)
+                 crossref(m).style.color="#008000";
+           }
+        
+           crossref(n).style.color="#FF0000";
+        
+           if (n<message.length-1)
+           {
+              n++;
+           }
+           else
+           {
+              n=0;
+              clearInterval(flashing);
+              setTimeout("StartNeon()", 1500);
+              return;
+           }
+        }
+        function StartNeon()
+        {
+           if (document.all||document.getElementById)
+              flashing=setInterval("neon()", flashspeed)
+        }
+        StartNeon();
+        </script>
+        </div>
+
+
+
+
+
+
+</center>
+</body>
+</html>
